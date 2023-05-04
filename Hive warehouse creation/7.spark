@@ -1,0 +1,5 @@
+docker exec -i -t hdp_spark-master bash
+
+cd spark
+cd bin
+

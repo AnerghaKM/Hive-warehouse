@@ -1,0 +1,71 @@
+Hadoop Ecosystem
+
+Apache Hive
+Datawarehouse tool built on top of Hadoop
+Mainly used for providing data query and analysis
+Provides SQL-type language for querying called HQL
+
+Apache Sqoop
+Sqoop is a special MapReduce job where only mappers work
+Used for transferring the data between relational database and Hadoop
+
+Apache Spark
+In Spark, only a one-time read(disk read) is required at the initial stage for reading the data from HDFS and all the processing is done.
+In memory finally, the final write is required to be done to HDFS. 
+So, overall 2 times disk I/O access is required.All other inbetween tasks takes place in memory.
+And this is the reason Spark is 10-100 times faster than MapReduce
+
+Databases
+MySQL
+Relational Database management system 
+The language used for accessing and managing the records in the database
+
+Approach
+Create an AWS EC2 instance and launch it
+Create docker images using the docker-compose file on the EC2 machine
+Create the tables in MySQL relational database management system
+Load the data from MySQL into HDFS storage using Sqoop commands.
+Move the data from HDFS to Hive
+Extract customer information from data using Scala code and store it as a parquet file
+Move the parquet file from Spark to Hive
+Create tables in Hive and load the data from parquet files into tables
+Perform Hive analytics on sales and Customer data
+
+RDBMS
+Read and write multiple times
+Can update if needed
+coming under Transactional system
+considered as monolithic system
+
+HIVE
+write once,read multiple times
+not for quick updates
+usually for analytical systems
+get advantage of distributed or parallel computing
+
+
+Hive table - two parts(components)
+1) where actual data is stored-->hdfs(this data we cant alter)
+2)metadata --> schema of data (storing in anydatabase, eg derby)
+
+Hive table- types of table
+1)Internal table
+2)external table
+
+external - even after dropping table,data in hdfs is saved
+internal - data permanently deleted along with meta data when we delete
+
+Hive doesnt have authority to completely get rid of data
+
+
+
+
+
+
+
+
+
+
+
+
+

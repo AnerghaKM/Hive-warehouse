@@ -1,0 +1,29 @@
+from ec2 
+docker exec -i -t ra_mysql bash
+
+mysql -u root -p
+example
+
+in bash shell
+
+show databases
+
+create database if not exists testdb
+
+CREATE TABLE `testdb`.`customer_test` (`CustomerID` int(11) NOT NULL AUTO_INCREMENT,`TerritoryID` int(11) DEFAULT NULL,`AccountNumber` varchar(10) NOT NULL,`CustomerType` varchar(1) NOT NULL,`rowguid` varbinary(16) NOT NULL,`ModifiedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY (`customerID`)) ENGINE=InnoDB Auto_increment=29484 default charset=utf8;
+
+use testdb;
+show tables;
+
+create view v_customer as 
+select cus.CustomerID,cus.AccountNumber, cus.CustomerType, ind.Demographics, cus.TerritoryID,cus.ModifiedDate from customer_test cus 
+join individual_test ind on ind.CustomerID = cus.CustomerID ;
+
+show tables;
+in this result we can see tables as well as views
+
+
+
+
+
+
